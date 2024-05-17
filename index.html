@@ -9,14 +9,14 @@
 <body>
     <h1>Panzió - szobafoglalás</h1>
     <div class="container">
-        <div class="urlap">
+        <div class="urlap felso-border">
             <div class="oszlop-bal">
                 <p>Érkezés dátuma:</p>
                 <p>Távozás dátuma:</p>
             </div>
             <div class="oszlop-jobb">
-                <input type="date" name="" id="">
-                <input type="date" name="" id="">
+                <input type="date" name="erkezes" id="erkezes"> <br>
+                <input type="date" name="tavozas" id="tavozas">
             </div>
         </div>
 
@@ -25,7 +25,72 @@
                 <p>Szoba típusa:</p>
             </div>
             <div class="oszlop-jobb">
-                
+                <input type="radio" name="egyagyas" id="egyagyas">
+                <label for="egyagyas">Egyágyas - 9.000 Ft/éj</label> <br>
+                <input type="radio" name="ketagyas" id="ketagyas">
+                <label for="ketagyas">Kétágyas - 15.000 Ft/éj</label> <br>
+                <input type="radio" name="egypotagy" id="egypotagy">
+                <label for="egypotagy">Kétágyas 1 pótággyal - 18.000 Ft/éj</label> <br>
+                <input type="radio" name="ketpotagy" id="ketpotagy">
+                <label for="ketpotagy">Kétágyas 2 pótággyal - 21.000 Ft/éj</label>
+            </div>
+        </div>
+
+        <div class="urlap">
+            <div class="oszlop-bal">
+                <p>Vendégek száma:</p>
+                <p>Vendégek életkora:</p>
+            </div>
+            <div class="oszlop-jobb">
+                <select name="vendegek" id="vendegek" class="rovid-input">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select> <label for="vendegek">fő</label> <br>
+                <input type="text" name="" id="" class="rovid-input"><label for="">év</label>
+                <input type="text" name="" id="" class="rovid-input"><label for="">év</label>
+                <input type="text" name="" id="" class="rovid-input"><label for="">év</label>
+                <input type="text" name="" id="" class="rovid-input"><label for="">év</label>
+            </div>
+        </div>
+
+        <div class="urlap">
+            <div class="oszlop-bal">
+                <p>Ellátás:</p>
+            </div>
+            <div class="oszlop-jobb">
+                <input type="radio" name="reggeli" id="reggeli">
+                <label for="reggeli">Reggeli - 900Ft/nap/fő</label> <br>
+                <input type="radio" name="felpanzio" id="felpanzio">
+                <label for="felpanzio">Félpanzió - 2.900Ft/nap/fő</label> <br>
+                <input type="radio" name="fullpanzio" id="fullpanzio">
+                <label for="fullpanzio">Teljes panzió - 4.900Ft/nap/fő</label> <br>
+            </div>
+        </div>
+
+        <div class="urlap">
+            <div class="oszlop-bal">
+                <p>Fürdő szolgáltatások:</p>
+            </div>
+            <div class="oszlop-jobb">
+                <input type="checkbox" name="belteri" id="belteri">
+                <label for="belteri">Beltéri medencék - 800Ft/nap/fő</label> <br>
+                <input type="checkbox" name="kulteri" id="kulteri">
+                <label for="kulteri">Kültéri medencék - 800Ft/nap/fő</label> <br>
+                <input type="checkbox" name="szauna" id="szauna">
+                <label for="szauna">Szauna belépő - 800Ft/nap/fő</label> <br>
+                <input type="checkbox" name="teljes" id="teljes">
+                <label for="teljes">Teljes belépő - 2.000Ft/nap/fő</label>
+            </div>
+        </div>
+
+        <div class="urlap">
+            <div class="oszlop-bal">
+                <p>Egyéb kérdés, kívánság:</p>
+            </div>
+            <div class="oszlop-jobb">
+                <textarea name="" id="" cols="44" rows="8"></textarea>
             </div>
         </div>
     </div>

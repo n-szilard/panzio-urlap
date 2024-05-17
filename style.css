@@ -1,18 +1,22 @@
 body {
     color: blue;
+    background-color: #fffff3;
+    margin: 0px;
 }
 
 h1 {
     text-align: center;
+    font-size: 2.5rem;
 }
 
 .container {
     margin: 0 auto;
-    background-color: lightgray;
+    background-color: #f0f0f0;
     width: 700px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 8px;
 }
 
 .urlap {
@@ -20,10 +24,15 @@ h1 {
     display: flex;
     border-bottom: 1px solid black;
     align-items: center;
+    padding: 8px;
+}
+
+.felso-border {
+    border-top: 1px solid black;
 }
 
 .oszlop-bal {
-    width: 30%;
+    width: 33%;
 }
 
 .oszlop-jobb {
@@ -32,5 +41,14 @@ h1 {
 
 input {
     margin: 8px;
-    display: block;
+}
+
+.rovid-input {
+    width: 50px;
+    margin-right: 2px;
+    margin-left: 0px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 4px;
 }
