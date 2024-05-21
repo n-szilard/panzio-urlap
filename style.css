@@ -41,6 +41,8 @@ h1 {
 
 input {
     margin: 8px;
+    border: 2px inset black;
+    background-color: #f0f0f0;
 }
 
 .rovid-input {
@@ -51,4 +53,10 @@ input {
 
 input[type="radio"], input[type="checkbox"] {
     margin: 4px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 16px;
 }
