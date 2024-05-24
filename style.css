@@ -60,3 +60,32 @@ button {
     margin: 0 auto;
     margin-top: 16px;
 }
+
+input[type="date"], select {
+    color: rgb(153, 39, 23);
+}
+
+@media screen and (max-width: 750px) {
+    .urlap {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .oszlop-jobb {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    p {
+        text-align: center;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    textarea {
+        width: 90%;
+    }
+}

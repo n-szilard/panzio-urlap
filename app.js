@@ -18,12 +18,63 @@ function kalkulalas() {
 
     let szobaTipusString;
     let ellatasString;
+    let szolgaltatasString = "";
+
+    let eletkorok = [document.getElementById("elsoEletkor").value, document.getElementById("masodikEletkor").value, document.getElementById("harmadikEletkor").value, document.getElementById("negyedikEletkor").value]
+    let eletkorokSzama = 0;
+    let nagyKoruakSzama = 0;
+
+    for (let iterator of eletkorok) {
+        iterator = Number(iterator)
+        if (Number.isNaN(iterator)) {
+            sikeres = false;
+        }
+        if (iterator != "" && Number(iterator) > 16) {
+            nagyKoruakSzama++;
+        }
+        if (iterator != "" && !Number.isNaN(iterator)) {
+            eletkorokSzama++;
+        }
+    }
+
+    console.log(nagyKoruakSzama)
+    console.log(szobaTipus.value)
+    console.log(vendegekSzama)
+
+    if (vendegekSzama != eletkorokSzama) {
+        sikeres = false;
+    }
+
+    if (szobaTipus.value < vendegekSzama) {
+        sikeres = false;
+    }
+
+    if (szobaTipus.value == 3 && nagyKoruakSzama > 2) {
+        sikeres = false;
+    } else if (szobaTipus.value == 4 && nagyKoruakSzama > 2) {
+        sikeres = false;
+    }
+
 
     if (teljes) {
         belteri = false;
         kulteri = false;
         szauna = false;
     }
+
+    if (teljes) {
+        szolgaltatasString = "Teljes belépő ";
+    }
+    if (belteri) {
+        szolgaltatasString += "Beltéri ";
+    }
+    if (kulteri) {
+        szolgaltatasString += "Kültéri ";
+    }
+    if (szauna) {
+        szolgaltatasString += "Szauna ";
+    }
+    szolgaltatasString += "szolgáltatás"
 
     if (szobaTipus == null) {
         alert("vege");
@@ -73,7 +124,7 @@ function kalkulalas() {
 
 
     if (sikeres) {
-        alert(`Kedves Vendégünk! \n\nTájékoztatjuk sikeres foglalásról \n\nÉrkezés: ${erkezes.toLocaleDateString()}\nTávozás: ${tavozas.toLocaleDateString()}\nSzoba típusa: ${szobaTipusString}\nVendégek száma ${vendegekSzama} fő\nEllátás: ${ellatasString}`)
+        alert(`Kedves Vendégünk! \n\nTájékoztatjuk sikeres foglalásról \n\nÉrkezés: ${erkezes.toLocaleDateString()}\nTávozás: ${tavozas.toLocaleDateString()}\nSzoba típusa: ${szobaTipusString}\nVendégek száma ${vendegekSzama} fő\nEllátás: ${ellatasString}\nIgényelt szolgáltatások: ${szolgaltatasString}`)
     } else {
         alert("Kérem helyesen töltse ki az űrlapot!")
     }
