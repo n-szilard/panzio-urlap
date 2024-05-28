@@ -5,7 +5,7 @@ function kalkulalas() {
 
     let szobaTipus = document.querySelector('input[name="szobatipus"]:checked');
 
-    let vendegekSzama = document.getElementById("vendegek").value;
+    let vendegekSzama = Number(document.getElementById("vendegek").value);
     
     let ellatas = document.querySelector('input[name="ellatas"]:checked');
 
@@ -24,6 +24,14 @@ function kalkulalas() {
     let eletkorokSzama = 0;
     let nagyKoruakSzama = 0;
 
+    let osszeg = 0;
+
+    if (erkezes > tavozas) {
+        sikeres = false;
+    } else {
+        napokSzama = (tavozas - erkezes) / (1000 * 3600 * 24)
+    }
+
     for (let iterator of eletkorok) {
         iterator = Number(iterator)
         if (Number.isNaN(iterator)) {
@@ -36,10 +44,6 @@ function kalkulalas() {
             eletkorokSzama++;
         }
     }
-
-    console.log(nagyKoruakSzama)
-    console.log(szobaTipus.value)
-    console.log(vendegekSzama)
 
     if (vendegekSzama != eletkorokSzama) {
         sikeres = false;
@@ -64,67 +68,70 @@ function kalkulalas() {
 
     if (teljes) {
         szolgaltatasString = "Teljes belépő ";
+        osszeg += 2000 * vendegekSzama * napokSzama;
     }
     if (belteri) {
         szolgaltatasString += "Beltéri ";
+        osszeg += 800 * vendegekSzama * napokSzama;
     }
     if (kulteri) {
         szolgaltatasString += "Kültéri ";
+        osszeg += 800 * vendegekSzama * napokSzama;
     }
     if (szauna) {
         szolgaltatasString += "Szauna ";
+        osszeg += 800 * vendegekSzama * napokSzama;
     }
     szolgaltatasString += "szolgáltatás"
 
     if (szobaTipus == null) {
-        alert("vege");
         sikeres = false;
     } else {
         szobaTipus = Number(szobaTipus.value);
         switch (szobaTipus) {
             case 1:
-                szobaTipusString = "Egyágyas"
+                szobaTipusString = "Egyágyas";
+                osszeg += 9000 * napokSzama;
                 break;
             case 2:
-                szobaTipusString = "Kétágyas"
+                szobaTipusString = "Kétágyas";
+                osszeg += 15000 * napokSzama;
                 break;
             case 3:
-                szobaTipusString = "Kétágyas 1 pótággyal"
+                szobaTipusString = "Kétágyas 1 pótággyal";
+                osszeg += 18000 * napokSzama;
                 break;
             case 4:
-                szobaTipusString = "Kétágyas 2 pótággyal"
+                szobaTipusString = "Kétágyas 2 pótággyal";
+                osszeg += 21000 * napokSzama;
                 break;
         }
     }
 
-    if (erkezes > tavozas) {
-        alert("vege");
-        sikeres = false;
-    } else {
-        napokSzama = (tavozas - erkezes) / (1000 * 3600 * 24)
-    }
+
 
     if (ellatas == null) {
-        alert("vege");
         sikeres = false;
     } else {
         ellatas = Number(ellatas.value);
         switch (ellatas) {
             case 1:
-                ellatasString = "Reggeli"
+                ellatasString = "Reggeli";
+                osszeg += 900 * vendegekSzama * napokSzama;
                 break;
             case 2:
-                ellatasString = "Félpanzió"
+                ellatasString = "Félpanzió";
+                osszeg += 2900 * vendegekSzama * napokSzama;
                 break;
             case 3:
-                ellatasString = "Teljes panzió"
+                ellatasString = "Teljes panzió";
+                osszeg += 4900 * vendegekSzama * napokSzama;
                 break;
         }
     }
 
-
     if (sikeres) {
-        alert(`Kedves Vendégünk! \n\nTájékoztatjuk sikeres foglalásról \n\nÉrkezés: ${erkezes.toLocaleDateString()}\nTávozás: ${tavozas.toLocaleDateString()}\nSzoba típusa: ${szobaTipusString}\nVendégek száma ${vendegekSzama} fő\nEllátás: ${ellatasString}\nIgényelt szolgáltatások: ${szolgaltatasString}`)
+        alert(`Kedves Vendégünk! \n\nTájékoztatjuk sikeres foglalásról \n\nÉrkezés: ${erkezes.toLocaleDateString()}\nTávozás: ${tavozas.toLocaleDateString()}\nSzoba típusa: ${szobaTipusString}\nVendégek száma ${vendegekSzama} fő\nEllátás: ${ellatasString}\nIgényelt szolgáltatások: ${szolgaltatasString}\nA teljes összeg: ${osszeg} Ft.\n\nKöszönjük megrendelését!`)
     } else {
         alert("Kérem helyesen töltse ki az űrlapot!")
     }
