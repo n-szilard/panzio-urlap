@@ -26,7 +26,7 @@ function kalkulalas() {
 
     let osszeg = 0;
 
-    if (erkezes > tavozas) {
+    if (erkezes > tavozas || isNaN(erkezes.getTime()) || isNaN(tavozas.getTime())) {
         sikeres = false;
     } else {
         napokSzama = (tavozas - erkezes) / (1000 * 3600 * 24)
